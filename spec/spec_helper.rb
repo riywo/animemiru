@@ -46,11 +46,18 @@ Spork.prefork do
     #     --seed 1234
     config.order = "random"
   end
+
+  if Spork.using_spork?
+    ActiveSupport::Dependencies.clear
+    ActiveRecord::Base.instantiate_observers
+  end
 end
 
 Spork.each_run do
   # This code will be run each time you run your specs.
 
+  load "#{Rails.root}/config/routes.rb"
+  Dir["#{Rails.root}/app/**/*.rb"].each { |f| load f }
 end
 
 # --- Instructions ---

@@ -7,7 +7,7 @@ guard 'bundler' do
   # watch(/^.+\.gemspec/)
 end
 
-guard 'migrate', :rails_env => { 'RAILS_ENV' => 'test' } do
+guard 'migrate', :run_on_start => true, :reset => true, :rails_env => 'test' do
   watch(%r{^db/migrate/(\d+).+\.rb})
   watch('db/seeds.rb')
 end

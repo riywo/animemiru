@@ -13,7 +13,6 @@ guard 'migrate', :rspec_env => { 'RAILS_ENV' => 'test' } do
 end
 
 guard 'spork', :rspec_env => { 'RAILS_ENV' => 'test' }, :test_unit => false, :cucumber_env => false do
-  watch('.git/HEAD')
   watch('config/application.rb')
   watch('config/environment.rb')
   watch('config/environments/test.rb')

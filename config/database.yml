@@ -5,16 +5,7 @@
 #   gem 'sqlite3'
 development:
   adapter: sqlite3
-  database: db/development_<%=
-    case `git symbolic-ref --short HEAD`
-      when 'master'      then 'master'
-      when 'develop'     then 'develop'
-      when /release\/.*/ then 'release'
-      when /hotfix\/.*/  then 'master'
-      when /feature\/.*/ then 'develop'
-      else                    'develop'
-    end
-  %>.sqlite3
+  database: db/development.sqlite3
   pool: 5
   timeout: 5000
 
@@ -23,16 +14,7 @@ development:
 # Do not set this db to the same as development or production.
 test:
   adapter: sqlite3
-  database: db/test_<%=
-    case `git symbolic-ref --short HEAD`
-      when 'master'      then 'master'
-      when 'develop'     then 'develop'
-      when /release\/.*/ then 'release'
-      when /hotfix\/.*/  then 'master'
-      when /feature\/.*/ then 'develop'
-      else                    'developa'
-    end
-  %>.sqlite3
+  database: db/test.sqlite3
   pool: 5
   timeout: 5000
 

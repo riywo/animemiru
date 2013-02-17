@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   attr_accessible :name, :provider, :uid
 
-  def self.from_omniauth
+  def self.from_omniauth(auth)
     find_by_provider_and_uid(auth["provider"], auth["uid"]) || create_with_omniauth(auth)
   end
 

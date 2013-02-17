@@ -17,3 +17,6 @@
 /vendor/bundle
 /bin
 .*.swp
+
+# Ignore application configuration
+/config/application.yml

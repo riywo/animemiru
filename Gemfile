@@ -30,12 +30,15 @@ group :development do
   gem 'rspec-rails'
   gem 'guard-rspec'
   gem 'guard-spork'
+  gem 'guard-bundler'
   gem 'guard-migrate'
   gem 'spork'
   gem 'rb-fsevent'
   gem 'factory_girl_rails'
   gem 'growl'
 end
+
+gem 'figaro'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
